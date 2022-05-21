@@ -9,10 +9,10 @@ int main(int argc, char **argv){
     ros::NodeHandle node_obj;
 
 
-    std::vector<std::string> sagal_controller_names;
-    sagal_controller_names.push_back("snake_joint");
-    sagal_controller_names.push_back("scorpion_joint");
-    auto sagal_robot = std::make_unique<sagalbot::MyRobot>(sagal_controller_names);
+    std::vector<std::string> sagal_joint_names;
+    sagal_joint_names.push_back("snake_joint");
+    sagal_joint_names.push_back("scorpion_joint");
+    auto sagal_robot = std::make_unique<sagalbot::MyRobot>(sagal_joint_names);
     controller_manager::ControllerManager cm(sagal_robot.get());
 
     ROS_INFO("sagal robot has generated");

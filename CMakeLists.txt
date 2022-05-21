@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -138,6 +139,11 @@ include_directories(
 add_executable(sagal_fakebot_run ./src/run.cpp ./src/sagalbot.cpp)
 add_dependencies(sagal_fakebot_run ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(sagal_fakebot_run ${catkin_LIBRARIES})
+
+
+add_executable(sagal_fakebot_view ./src/view_state.cpp)
+add_dependencies(sagal_fakebot_view ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(sagal_fakebot_view ${catkin_LIBRARIES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

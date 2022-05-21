@@ -12,14 +12,14 @@
 namespace sagalbot{
 class MyRobot : public hardware_interface::RobotHW{
 private:
-    std::vector<hardware_interface::JointStateHandle> jnt_state_handles;
+    hardware_interface::JointStateHandle* jnt_state_handles;
     hardware_interface::JointStateInterface jnt_state_interface;
-    std::vector<hardware_interface::JointHandle> jnt_pos_handles;
+    hardware_interface::JointHandle* jnt_pos_handles;
     hardware_interface::PositionJointInterface jnt_pos_interface;
-    std::vector<double> cmd;
-    std::vector<double> pos;
-    std::vector<double> vel;
-    std::vector<double> eff;
+    double* cmd;
+    double* pos;
+    double* vel;
+    double* eff;
     std::vector<std::string> joint_list;
     void MyRobot_init();
 public:
