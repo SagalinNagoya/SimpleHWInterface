@@ -1,0 +1,15 @@
+<launch>
+  <group ns="sagal_robot">
+    <rosparam file="$(find sagal_fakebot)/config/controller_config.yaml" command="load"/>
+ 
+    <node name="controller_manager"
+        pkg="controller_manager"
+        type="spawner" respawn="false"
+        output="screen"
+        args="joint_state_controller
+              position_controller_snake
+              position_controller_scorpion"/>
+ 
+    <node name="sagal_fakebot" pkg="sagal_fakebot" type="sagal_fakebot_run" output="screen" respawn="false" />
+  </group>
+</launch>
